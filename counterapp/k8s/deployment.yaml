@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: counterapp-deployment
+  labels:
+    app: counterapp
+  namespace: nithin-nm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: counterapp
+  template:
+    metadata:
+      labels:
+        app: counterapp
+    spec:
+      containers:
+      - name: counterapp
+        image: nithin8/counterapp
+        ports:
+        - containerPort: 5173
